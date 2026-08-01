@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Bug report
+description: Something in the shared design system or instrumentation isn't behaving.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. This repo is the **shared layer** — if the issue is with a
+        specific site's content, please file it on that site's repo instead.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: Ideally a minimal HTML snippet that links the stylesheet/module.
+      placeholder: |
+        1. Link `.../@0/solo7.css` with `class="imprint-valesor"` on <html>
+        2. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - CSS / tokens / components
+        - Color / contrast / accessibility
+        - Faro instrumentation module
+        - Build / release / distribution
+        - Demo / docs
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Which version/URL are you using (e.g. `@0.1.0`, `@0`, or a vendored copy)?
+      placeholder: '@0.1.0'
+    validations:
+      required: true
+  - type: dropdown
+    id: scheme
+    attributes:
+      label: Color scheme
+      options:
+        - Both
+        - Light
+        - Dark
+        - N/A
+    validations:
+      required: false
+  - type: input
+    id: env
+    attributes:
+      label: Browser / OS
+      placeholder: 'Firefox 141 on macOS 15'
+    validations:
+      required: false

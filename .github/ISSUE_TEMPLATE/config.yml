@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: Apache-2.0
+blank_issues_enabled: false
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/valesordev/solo7-theme/discussions
+    about: For usage questions and open-ended ideas, please start a discussion.
+  - name: Security vulnerability
+    url: https://github.com/valesordev/solo7-theme/security/advisories/new
+    about: Report vulnerabilities privately — do not open a public issue.
