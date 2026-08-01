@@ -1,0 +1,16 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2026 Valesor Development */
+/*
+ * solo7-theme — assembly entry. esbuild inlines every @import into one minified
+ * dist/solo7.css (ADR-002). Import order is the cascade: tokens first (custom
+ * properties), then reset, then everything that reads them.
+ *
+ * _tokens.generated.css is emitted from tokens/*.json by build-tokens.mjs and is the
+ * only generated file here; do not edit it by hand.
+ */
+@import url('_tokens.generated.css');
+@import url('reset.css');
+@import url('base.css');
+@import url('code.css');
+@import url('layout.css');
+@import url('components.css');

@@ -1,0 +1,59 @@
+<!--
+  privacy.html — SHARED, identical across all five sites. Drop this fragment into each
+  site's /privacy page body (inside a <main class="container container--prose">). The
+  only per-site variable is {{LAST_UPDATED}}. Keep the wording in sync by re-copying
+  from solo7-theme rather than editing in place — it describes exactly what the shared
+  Faro module (src/js/faro.mjs) does, and the two must not drift.
+-->
+<article class="stack">
+  <header class="stack stack--tight">
+    <p class="eyebrow">Privacy</p>
+    <h1>What this site collects</h1>
+    <p>
+      Short version: anonymous, aggregate performance and error data — and nothing that identifies you or records what
+      you read. There are no accounts, no ads, and nothing for sale here.
+    </p>
+  </header>
+
+  <h2>Frontend telemetry</h2>
+  <p>
+    These pages load Grafana Faro, a frontend observability tool, reporting to Grafana Cloud. It records technical
+    signals — JavaScript errors, page-load and web-vitals performance, and page-view counts — so the site can be kept
+    fast and unbroken. This is also deliberate dogfooding: the people who build these sites use them to talk about
+    observability.
+  </p>
+
+  <h2>What we deliberately do NOT do</h2>
+  <ul>
+    <li>
+      <b>No session replay.</b> We do not record your screen, mouse, scrolling, or which posts you open or linger on.
+      Some of what is published here concerns health conditions, and a recording of which pages a stranger reads is
+      exactly the kind of data we refuse to hold. The replay software is not even loaded.
+    </li>
+    <li>
+      <b>No persistent tracking.</b> Sessions are volatile — kept only in your tab's <code>sessionStorage</code> and
+      discarded when you close it. Nothing links one visit to the next, or one site in this family to another.
+    </li>
+    <li><b>No identifying you.</b> We never set or ask for a user identity. There are no accounts and no login.</li>
+    <li>
+      <b>No personal data in events.</b> No names, emails, form contents, or free text are attached to any telemetry.
+    </li>
+    <li><b>No advertising or third-party trackers</b> beyond the single telemetry endpoint described above.</li>
+  </ul>
+
+  <h2>Hosting</h2>
+  <p>
+    The sites are static files served from GitHub Pages, with DNS through Cloudflare. As part of delivering any web
+    page, those providers process ordinary request metadata (such as your IP address) under their own privacy policies.
+    We do not add tracking on top of that.
+  </p>
+
+  <h2>Turning it off</h2>
+  <p>
+    Every page here works fully without JavaScript. If you block scripts, all telemetry described above is disabled and
+    the content is unaffected.
+  </p>
+
+  <h2>Changes</h2>
+  <p>This notice is shared verbatim across every Solo7 imprint site. Last updated {{LAST_UPDATED}}.</p>
+</article>

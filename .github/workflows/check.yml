@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: Apache-2.0
+# Runs the full gate on every PR and push to main. This is the same `make check` a
+# contributor runs locally — contrast (WCAG AA), stylelint, prettier, and CSS budget.
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: make check

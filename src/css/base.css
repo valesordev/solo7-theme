@@ -1,0 +1,168 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * Base typography and prose elements. These sites are text-first, so plain,
+ * unclassed HTML must already read well. Selectors use :where() to keep
+ * specificity at 0 — a consumer site can override any of this with a single class.
+ */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-normal);
+  text-underline-offset: 0.15em;
+}
+
+/* Vertical rhythm: block elements carry bottom margin; headings add space above. */
+:where(p, ul, ol, dl, blockquote, pre, figure, table, hr) {
+  margin-block-end: var(--space-4);
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  margin-block: var(--space-6) var(--space-3);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+:where(h1) {
+  font-size: var(--font-size-6);
+}
+:where(h2) {
+  font-size: var(--font-size-5);
+}
+:where(h3) {
+  font-size: var(--font-size-4);
+}
+:where(h4) {
+  font-size: var(--font-size-3);
+}
+:where(h5) {
+  font-size: var(--font-size-2);
+}
+:where(h6) {
+  font-size: var(--font-size-1);
+  color: var(--color-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+/* First heading of a flow shouldn't push a big gap above itself. */
+:where(h1, h2, h3, h4, h5, h6):first-child {
+  margin-block-start: 0;
+}
+
+/* Links: accent-text is gated to AA on bg and surface; falls back to fg on an
+   imprint-less page. Hover only thickens the underline — no second color to keep AA. */
+:where(a) {
+  color: var(--color-accent-text, var(--color-fg));
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+:where(a:hover) {
+  text-decoration-thickness: 3px;
+}
+
+:where(:focus-visible) {
+  outline: var(--border-width-thick) solid var(--color-accent, var(--color-fg));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+:where(strong, b) {
+  font-weight: var(--font-weight-bold);
+}
+:where(small) {
+  font-size: var(--font-size-0);
+}
+:where(abbr[title]) {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+:where(mark) {
+  background: var(--color-accent, var(--color-well));
+  color: var(--color-bg);
+  padding-inline: 0.2em;
+  border-radius: var(--radius-sm);
+}
+
+/* Lists */
+:where(ul, ol) {
+  padding-inline-start: var(--space-6);
+}
+:where(li + li) {
+  margin-block-start: var(--space-2);
+}
+:where(li) > :where(ul, ol) {
+  margin-block: var(--space-2) 0;
+}
+:where(dt) {
+  font-weight: var(--font-weight-bold);
+}
+:where(dd) {
+  margin-inline-start: var(--space-5);
+}
+
+/* Blockquote — a raised panel with an accent rule. */
+:where(blockquote) {
+  padding: var(--space-3) var(--space-5);
+  border-inline-start: var(--border-width-thick) solid
+    var(--color-accent, var(--color-border-strong));
+  background: var(--color-surface);
+  color: var(--color-fg-muted);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+:where(blockquote) > :last-child {
+  margin-block-end: 0;
+}
+:where(cite) {
+  font-style: normal;
+  color: var(--color-fg-subtle);
+  font-size: var(--font-size-0);
+}
+
+/* Figures */
+:where(figure) {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+:where(figcaption) {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-0);
+}
+
+/* Rules */
+:where(hr) {
+  border: 0;
+  block-size: var(--border-width-thin);
+  background: var(--color-border);
+}
+
+/* Tables */
+:where(table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+:where(caption) {
+  caption-side: bottom;
+  padding-block-start: var(--space-2);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-0);
+  text-align: start;
+}
+:where(th, td) {
+  padding: var(--space-2) var(--space-3);
+  text-align: start;
+  border-block-end: var(--border-width-thin) solid var(--color-border);
+}
+:where(thead th) {
+  border-block-end: var(--border-width-thick) solid var(--color-border-strong);
+  font-size: var(--font-size-0);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+:where(tbody tr:nth-child(even)) {
+  background: var(--color-well);
+}

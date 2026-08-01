@@ -1,0 +1,15 @@
+solo7-theme
+Copyright 2026 Valesor Development (github.com/valesordev)
+
+This product includes software developed by Valesor Development.
+
+Licensed under the Apache License, Version 2.0. See the LICENSE file.
+
+---
+
+Color palette derived from gruvbox by Pavel Pertsev (morhetz), which is
+distributed under the MIT License: https://github.com/morhetz/gruvbox
+
+This project bundles the Grafana Faro Web SDK (@grafana/faro-web-sdk),
+Copyright Grafana Labs, distributed under the Apache License, Version 2.0:
+https://github.com/grafana/faro-web-sdk

@@ -1,0 +1,50 @@
+{
+  "$description": "Semantic color roles, resolved per color scheme. These are imprint-independent — every site shares them; only the accent (tokens/accents.json) differs. Orientation is consistent across schemes: `surface` is a RAISED panel (lighter in dark, cleaner in light), `well` is a RECESSED code/table tint (darker in dark, tinted in light). References into palette.gruvbox.json are resolved at build time.",
+  "color": {
+    "bg": {
+      "$type": "color",
+      "light": { "$value": "{gruvbox.light.bg0}" },
+      "dark": { "$value": "{gruvbox.dark.bg0}" }
+    },
+    "surface": {
+      "$type": "color",
+      "$description": "Raised panels: cards, header, blockquote.",
+      "light": { "$value": "{gruvbox.light.bg0-hard}" },
+      "dark": { "$value": "{gruvbox.dark.bg1}" }
+    },
+    "well": {
+      "$type": "color",
+      "$description": "Recessed fills: code/pre wells, table zebra stripe.",
+      "light": { "$value": "{gruvbox.light.bg1}" },
+      "dark": { "$value": "{gruvbox.dark.bg0-hard}" }
+    },
+    "fg": {
+      "$type": "color",
+      "$description": "Body text. Contrast-gated AA on bg, surface, and well.",
+      "light": { "$value": "{gruvbox.light.fg1}" },
+      "dark": { "$value": "{gruvbox.dark.fg1}" }
+    },
+    "fg-muted": {
+      "$type": "color",
+      "$description": "Secondary text (captions, meta). Contrast-gated AA on bg and surface.",
+      "light": { "$value": "{gruvbox.light.fg2}" },
+      "dark": { "$value": "{gruvbox.dark.fg3}" }
+    },
+    "fg-subtle": {
+      "$type": "color",
+      "$description": "Tertiary/decorative text. Gated at AA-large only — do not use for body copy.",
+      "light": { "$value": "{gruvbox.light.fg4}" },
+      "dark": { "$value": "{gruvbox.dark.fg4}" }
+    },
+    "border": {
+      "$type": "color",
+      "light": { "$value": "{gruvbox.light.bg2}" },
+      "dark": { "$value": "{gruvbox.dark.bg2}" }
+    },
+    "border-strong": {
+      "$type": "color",
+      "light": { "$value": "{gruvbox.light.bg3}" },
+      "dark": { "$value": "{gruvbox.dark.bg3}" }
+    }
+  }
+}

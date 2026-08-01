@@ -1,0 +1,14 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "ignoreFiles": ["src/css/_tokens.generated.css", "dist/**/*"],
+  "rules": {
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "comment-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "selector-class-pattern": null,
+    "color-function-notation": "modern",
+    "alpha-value-notation": "number",
+    "property-no-vendor-prefix": null
+  }
+}

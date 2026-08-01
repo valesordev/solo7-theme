@@ -1,0 +1,143 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * Shared components. The header's accent top-rule and the footer credit block are the
+ * pieces that make the imprint FAMILY legible — one system, five marks. Every color
+ * here comes from tokens, so an imprint class on <html> retints the whole component.
+ */
+
+/* Panel — the generic raised surface used by cards and callouts. */
+.panel {
+  background: var(--color-surface);
+  border: var(--border-width-thin) solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+
+/* Eyebrow — small uppercase label above a heading or in meta rows. */
+.eyebrow {
+  font-size: var(--font-size-0);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-fg-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ---- Site header / nav ------------------------------------------------------- */
+
+.site-header {
+  background: var(--color-surface);
+  border-block-start: var(--space-1) solid var(--color-accent, var(--color-border-strong));
+  border-block-end: var(--border-width-thin) solid var(--color-border);
+}
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  align-items: baseline;
+  justify-content: space-between;
+  padding-block: var(--space-4);
+}
+.brand {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-2);
+  text-decoration: none;
+  color: var(--color-fg);
+}
+/* The imprint mark — a small accent square that carries the brand color. */
+.brand__mark {
+  inline-size: 0.7em;
+  block-size: 0.7em;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent, var(--color-fg));
+  align-self: center;
+}
+.brand__note {
+  font-weight: var(--font-weight-normal);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-0);
+}
+
+.site-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-nav a {
+  text-decoration: none;
+  color: var(--color-fg-muted);
+  padding-block: var(--space-1);
+}
+.site-nav a:hover {
+  color: var(--color-fg);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+.site-nav a[aria-current='page'] {
+  color: var(--color-accent-text, var(--color-fg));
+  box-shadow: inset 0 -0.15em 0 var(--color-accent, currentcolor);
+}
+
+/* ---- Footer credit block (the imprint-family signal) ------------------------- */
+
+.footer-credit {
+  border-block-start: var(--border-width-thin) solid var(--color-border);
+  padding-block: var(--space-6);
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-0);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.footer-credit__imprint {
+  color: var(--color-fg);
+  font-size: var(--font-size-1);
+}
+.footer-credit__imprint b {
+  color: var(--color-accent-text, var(--color-fg));
+}
+.footer-credit__siblings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer-credit__siblings li[aria-current='true'] {
+  color: var(--color-fg-subtle);
+}
+
+/* ---- Production credits block (fixed copy lives in the partial) -------------- */
+
+.production-credits {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-0);
+  line-height: var(--leading-snug);
+  border-inline-start: var(--border-width-thick) solid
+    var(--color-accent, var(--color-border-strong));
+  padding-inline-start: var(--space-4);
+}
+.production-credits b {
+  color: var(--color-fg);
+  font-weight: var(--font-weight-medium);
+}
+
+/* ---- License block (parameterized per site) --------------------------------- */
+
+.license-block {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-0);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+.license-block code {
+  font-size: 0.85em;
+}

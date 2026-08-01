@@ -1,0 +1,47 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/*
+ * Code and pre. These are technical sites — code blocks are primary content, not an
+ * afterthought — so the code well is a first-class recessed surface with its own token.
+ */
+
+:where(code, kbd, samp, pre) {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* Inline code */
+:where(code) {
+  background: var(--color-well);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  border: var(--border-width-thin) solid var(--color-border);
+}
+
+/* Code blocks: a recessed well that scrolls horizontally rather than breaking the page. */
+:where(pre) {
+  background: var(--color-well);
+  color: var(--color-fg);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border: var(--border-width-thin) solid var(--color-border);
+  overflow-x: auto;
+  line-height: var(--leading-snug);
+  tab-size: 2;
+}
+/* A <code> inside <pre> is plain — the <pre> already owns the well. */
+:where(pre) code {
+  background: none;
+  padding: 0;
+  border: 0;
+  font-size: inherit;
+}
+
+/* Keyboard keys */
+:where(kbd) {
+  background: var(--color-surface);
+  border: var(--border-width-thin) solid var(--color-border-strong);
+  border-block-end-width: var(--border-width-thick);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.4em;
+  font-size: 0.85em;
+}

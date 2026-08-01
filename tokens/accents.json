@@ -1,0 +1,70 @@
+{
+  "$description": "Per-imprint accent assignment. ONE system, FIVE marks: identical everywhere else, distinct here. Each imprint gets, per scheme, two accent roles:\n  - `accent`      vivid brand hue for DECORATION/UI/large text — gated at 3:1.\n  - `accent-text` AA-safe hue for inline links & accent text at body size — gated at 4.5:1 on BOTH bg and surface.\nHover/active is NOT a third color: it emphasizes `accent-text` with underline weight, so there is no accent-strong to keep in sync. Values reference canonical gruvbox where it clears AA, and gruvbox.accent.tuned where it does not (see palette.gruvbox.json). Which scheme uses which variant is what makes the gate pass — verified by `make check`. bashburn is deliberately near-neutral: its link text IS the foreground (terminal aesthetic) and aqua is spent sparingly as the decorative mark.",
+  "imprint": {
+    "valesor": {
+      "$description": "Valesor Development — engineering, open-source. Aqua.",
+      "accent": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.tuned.aqua-ui-light}" },
+        "dark": { "$value": "{gruvbox.accent.dark.aqua}" }
+      },
+      "accent-text": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.tuned.aqua-aa-light}" },
+        "dark": { "$value": "{gruvbox.accent.dark.aqua}" }
+      }
+    },
+    "system9": {
+      "$description": "System 9 Studios — visual production, pipeline. Purple.",
+      "accent": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.neutral.purple}" },
+        "dark": { "$value": "{gruvbox.accent.dark.purple}" }
+      },
+      "accent-text": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.faded.purple}" },
+        "dark": { "$value": "{gruvbox.accent.tuned.purple-aa-dark}" }
+      }
+    },
+    "solo7productions": {
+      "$description": "Solo7 Productions — narrative label, fiction. Orange.",
+      "accent": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.neutral.orange}" },
+        "dark": { "$value": "{gruvbox.accent.dark.orange}" }
+      },
+      "accent-text": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.faded.orange}" },
+        "dark": { "$value": "{gruvbox.accent.dark.orange}" }
+      }
+    },
+    "solo7media": {
+      "$description": "solo7.media — art portfolio. Green.",
+      "accent": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.tuned.green-ui-light}" },
+        "dark": { "$value": "{gruvbox.accent.dark.green}" }
+      },
+      "accent-text": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.tuned.green-aa-light}" },
+        "dark": { "$value": "{gruvbox.accent.dark.green}" }
+      }
+    },
+    "bashburn": {
+      "$description": "bashburn — technical blog, terminal. Near-neutral: link text is the foreground; aqua is the sparing decorative mark.",
+      "accent": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.accent.tuned.aqua-ui-light}" },
+        "dark": { "$value": "{gruvbox.accent.dark.aqua}" }
+      },
+      "accent-text": {
+        "$type": "color",
+        "light": { "$value": "{gruvbox.light.fg1}" },
+        "dark": { "$value": "{gruvbox.dark.fg1}" }
+      }
+    }
+  }
+}

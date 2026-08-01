@@ -1,0 +1,39 @@
+{
+  "name": "@valesordev/solo7-theme",
+  "version": "0.1.0",
+  "description": "Shared design system and instrumentation layer for the Solo7 family of static sites. One system, five marks.",
+  "license": "Apache-2.0",
+  "author": "Valesor Development (github.com/valesordev)",
+  "homepage": "https://github.com/valesordev/solo7-theme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valesordev/solo7-theme.git"
+  },
+  "type": "module",
+  "//": "This package exists to AUTHOR the tokens/build. Consumers do NOT install it — they link the CI-published CSS/JS (ADR-001). devDependencies only, plus the bundled Faro runtime.",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./solo7.css": "./dist/solo7.css",
+    "./solo7.mjs": "./dist/solo7.mjs"
+  },
+  "scripts": {
+    "build:tokens": "node tools/build-tokens.mjs",
+    "build": "node tools/build.mjs",
+    "check:contrast": "node tools/check-contrast.mjs",
+    "check:budget": "node tools/check-budget.mjs",
+    "lint:css": "stylelint 'src/css/**/*.css'",
+    "format": "prettier --check .",
+    "format:write": "prettier --write ."
+  },
+  "dependencies": {
+    "@grafana/faro-web-sdk": "^2.9.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "prettier": "^3.4.0",
+    "stylelint": "^16.14.0",
+    "stylelint-config-standard": "^37.0.0"
+  }
+}

@@ -1,0 +1,15 @@
+# Build output — published by CI to GitHub Pages + Releases, never committed (ADR-001)
+/dist/
+
+# Generated token CSS — emitted from tokens/*.json by build-tokens.mjs
+/src/css/_tokens.generated.css
+
+# Generated demo — emitted from tokens by build-demo.mjs
+/demo/index.html
+
+# Node
+/node_modules/
+npm-debug.log*
+
+# OS
+.DS_Store

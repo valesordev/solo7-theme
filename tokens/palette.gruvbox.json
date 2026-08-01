@@ -1,0 +1,92 @@
+{
+  "$description": "Gruvbox base palette. Hard-coded hex from the canonical gruvbox scheme (morhetz/gruvbox). Light and dark are complete, independent ramps — dark is not derived from light. These are RAW material; semantic mapping lives in tokens/semantic.json.",
+  "gruvbox": {
+    "$description": "Neutral ramps. bg0..bg4 = surfaces darkest→lightest in that scheme's orientation; fg0..fg4 = text lightest→darkest contrast; gray = the mid neutral shared by both.",
+    "dark": {
+      "bg0-hard": { "$type": "color", "$value": "#1d2021" },
+      "bg0": { "$type": "color", "$value": "#282828" },
+      "bg1": { "$type": "color", "$value": "#3c3836" },
+      "bg2": { "$type": "color", "$value": "#504945" },
+      "bg3": { "$type": "color", "$value": "#665c54" },
+      "bg4": { "$type": "color", "$value": "#7c6f64" },
+      "fg0": { "$type": "color", "$value": "#fbf1c7" },
+      "fg1": { "$type": "color", "$value": "#ebdbb2" },
+      "fg2": { "$type": "color", "$value": "#d5c4a1" },
+      "fg3": { "$type": "color", "$value": "#bdae93" },
+      "fg4": { "$type": "color", "$value": "#a89984" },
+      "gray": { "$type": "color", "$value": "#928374" }
+    },
+    "light": {
+      "bg0-hard": { "$type": "color", "$value": "#f9f5d7" },
+      "bg0": { "$type": "color", "$value": "#fbf1c7" },
+      "bg1": { "$type": "color", "$value": "#ebdbb2" },
+      "bg2": { "$type": "color", "$value": "#d5c4a1" },
+      "bg3": { "$type": "color", "$value": "#bdae93" },
+      "bg4": { "$type": "color", "$value": "#a89984" },
+      "fg0": { "$type": "color", "$value": "#282828" },
+      "fg1": { "$type": "color", "$value": "#3c3836" },
+      "fg2": { "$type": "color", "$value": "#504945" },
+      "fg3": { "$type": "color", "$value": "#665c54" },
+      "fg4": { "$type": "color", "$value": "#7c6f64" },
+      "gray": { "$type": "color", "$value": "#7c6f64" }
+    },
+    "accent": {
+      "$description": "Hue ramp. `bright` reads well on dark surfaces; `neutral` and the darker `faded` read well on light surfaces. The contrast gate (make check) decides which variant each imprint uses per scheme — see tokens/accents.json.",
+      "dark": {
+        "red": { "$type": "color", "$value": "#fb4934" },
+        "green": { "$type": "color", "$value": "#b8bb26" },
+        "yellow": { "$type": "color", "$value": "#fabd2f" },
+        "blue": { "$type": "color", "$value": "#83a598" },
+        "purple": { "$type": "color", "$value": "#d3869b" },
+        "aqua": { "$type": "color", "$value": "#8ec07c" },
+        "orange": { "$type": "color", "$value": "#fe8019" }
+      },
+      "neutral": {
+        "red": { "$type": "color", "$value": "#cc241d" },
+        "green": { "$type": "color", "$value": "#98971a" },
+        "yellow": { "$type": "color", "$value": "#d79921" },
+        "blue": { "$type": "color", "$value": "#458588" },
+        "purple": { "$type": "color", "$value": "#b16286" },
+        "aqua": { "$type": "color", "$value": "#689d6a" },
+        "orange": { "$type": "color", "$value": "#d65d0e" }
+      },
+      "faded": {
+        "red": { "$type": "color", "$value": "#9d0006" },
+        "green": { "$type": "color", "$value": "#79740e" },
+        "yellow": { "$type": "color", "$value": "#b57614" },
+        "blue": { "$type": "color", "$value": "#076678" },
+        "purple": { "$type": "color", "$value": "#8f3f71" },
+        "aqua": { "$type": "color", "$value": "#427b58" },
+        "orange": { "$type": "color", "$value": "#af3a03" }
+      },
+      "tuned": {
+        "$description": "AA-tuned variants — the ONLY deviations from canonical gruvbox in this repo. Each is a minimal sRGB shade (≤~4%) of the nearest canonical variant, made because the canonical hue could not clear its WCAG threshold on the binding gruvbox surface. Every one is re-verified by `make check`. Named <hue>-<role>-<scheme>: `aa` = AA 4.5:1 text, `ui` = 3:1 decorative/large.",
+        "aqua-aa-light": {
+          "$type": "color",
+          "$value": "#417956",
+          "$comment": "faded aqua #427b58 → 4.52:1 on light bg (was 4.40, failed)"
+        },
+        "aqua-ui-light": {
+          "$type": "color",
+          "$value": "#649766",
+          "$comment": "neutral aqua #689d6a → 3.00:1 on light bg (was 2.80, failed)"
+        },
+        "green-aa-light": {
+          "$type": "color",
+          "$value": "#746f0d",
+          "$comment": "faded green #79740e → 4.60:1 on light bg (was 4.29, failed)"
+        },
+        "green-ui-light": {
+          "$type": "color",
+          "$value": "#8f8e18",
+          "$comment": "neutral green #98971a → 3.06:1 on light bg (was 2.73, failed)"
+        },
+        "purple-aa-dark": {
+          "$type": "color",
+          "$value": "#d68da1",
+          "$comment": "bright purple #d3869b → 4.52:1 on dark surface (was 4.23, failed)"
+        }
+      }
+    }
+  }
+}

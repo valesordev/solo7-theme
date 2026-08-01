@@ -1,0 +1,26 @@
+<!--
+  site-header.html — shared header/nav.
+
+  Consumers copy this markup (these are static sites; there is no shared template
+  engine). Fill the {{PLACEHOLDERS}} and set the imprint class on <html>, e.g.
+  <html lang="en" class="imprint-valesor">. The accent top-rule and brand mark then
+  take that imprint's color automatically. Mark the active page with
+  aria-current="page".
+-->
+<header class="site-header">
+  <div class="site-header__inner container container--wide">
+    <a class="brand" href="/">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span>{{SITE_NAME}}</span>
+      <span class="brand__note">{{TAGLINE}}</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/writing/">Writing</a></li>
+        <li><a href="/work/">Work</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,66 @@
+# SPDX-License-Identifier: Apache-2.0
+# Release publisher (ADR-001). On a version tag, gate + build, then publish the two
+# consumer artifacts to BOTH:
+#   1. GitHub Pages, at immutable versioned paths plus a moving major alias:
+#        https://valesordev.github.io/solo7-theme/@X.Y.Z/solo7.css   (pin exact)
+#        https://valesordev.github.io/solo7-theme/@X/solo7.css        (track major)
+#      keep_files:true means each release ADDS its @X.Y.Z dir without deleting older
+#      ones, so exact pins stay immutable. (Pages source must be the gh-pages branch —
+#      a one-time repo setting.)
+#   2. A GitHub Release, with solo7.css / solo7.mjs attached (hard-immutable per tag).
+# dist/ is never committed to the default branch — this workflow is the only producer.
+name: release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write # create the Release and push to gh-pages
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+
+      # Gate before publishing anything.
+      - run: make check
+
+      - name: Derive version paths
+        id: ver
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+          echo "major=${V%%.*}" >> "$GITHUB_OUTPUT"
+
+      # Assemble the Pages tree: exact-version dir + moving major alias.
+      - name: Stage Pages tree
+        run: |
+          set -eu
+          V="${{ steps.ver.outputs.version }}"
+          M="${{ steps.ver.outputs.major }}"
+          mkdir -p "public/@${V}" "public/@${M}"
+          cp dist/solo7.css dist/solo7.mjs dist/VERSION "public/@${V}/"
+          cp dist/solo7.css dist/solo7.mjs dist/VERSION "public/@${M}/"
+          cp demo/index.html public/index.html || true
+
+      - name: Publish to GitHub Pages (gh-pages branch, additive)
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          keep_files: true # preserve older @X.Y.Z dirs → immutable exact pins
+
+      - name: Attach artifacts to the Release
+        uses: softprops/action-gh-release@c95fe1489396fe8a9eb87c0abf8aa5b2ef267fda # v2.2.1
+        with:
+          files: |
+            dist/solo7.css
+            dist/solo7.mjs
+          generate_release_notes: true
