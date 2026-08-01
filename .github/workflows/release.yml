@@ -48,7 +48,12 @@ jobs:
           mkdir -p "public/@${V}" "public/@${M}"
           cp dist/solo7.css dist/solo7.mjs dist/VERSION "public/@${V}/"
           cp dist/solo7.css dist/solo7.mjs dist/VERSION "public/@${M}/"
-          cp demo/index.html public/index.html || true
+          # Landing page = the demo, dogfooding THIS release's published CSS. Copy the
+          # assets to the site root and repoint the demo's stylesheet link there (the
+          # generated demo uses ../dist for local `make serve`, which doesn't exist at
+          # the Pages root).
+          cp dist/solo7.css dist/solo7.mjs public/
+          sed 's|../dist/solo7.css|./solo7.css|g' demo/index.html > public/index.html
 
       - name: Publish to GitHub Pages (gh-pages branch, additive)
         uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4.0.0
