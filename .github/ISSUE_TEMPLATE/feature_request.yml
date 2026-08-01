@@ -1,0 +1,42 @@
+# SPDX-License-Identifier: Apache-2.0
+name: Proposal
+description: Suggest a token, component, or change to the shared system.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Proposals are weighed against the project's constraints: small footprint
+        (<15KB CSS budget), no framework dependency, WCAG AA on every color pairing,
+        zero-build consumption, and the Faro privacy rules. See
+        [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the need?
+      description: The problem or use case, not just the solution.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What would you add or change? A token, a component, a variant?
+    validations:
+      required: true
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Fits the constraints
+      description: Confirm the proposal respects the project's hard limits.
+      options:
+        - label: Works with zero-build consumption (plain CSS custom properties / ES modules, no framework)
+        - label: Holds up in both light and dark schemes
+        - label: Any new color pairing can pass WCAG AA (or I've noted where it can't)
+        - label: Doesn't blow the CSS budget or add runtime dependencies
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+    validations:
+      required: false

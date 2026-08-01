@@ -151,6 +151,14 @@ gruvbox surfaces do **not** all pass at their canonical values — five accent v
 minimally tuned (documented in `tokens/palette.gruvbox.json` under `gruvbox.accent.tuned`)
 so every pairing clears AA. The demo shows the live ratios next to each accent.
 
+## Contributing
+
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for the workflow and the
+design constraints the CI enforces (accessibility gate, CSS budget, zero-build consumption,
+Faro privacy rules). Participation is covered by our
+[Code of Conduct](CODE_OF_CONDUCT.md). To report a vulnerability, see
+[SECURITY.md](SECURITY.md).
+
 ## License
 
 Apache-2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE). The color palette derives from
